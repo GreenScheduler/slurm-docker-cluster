@@ -6,6 +6,7 @@ LABEL org.opencontainers.image.source="https://github.com/giovtorres/slurm-docke
       org.label-schema.docker.cmd="docker-compose up -d" \
       maintainer="Giovanni Torres"
 
+# Changes from upstream giovtorres/slurm-docker-cluster: added jq to parse JSON output
 RUN set -ex \
     && yum makecache \
     && yum -y update \
@@ -32,12 +33,16 @@ RUN set -ex \
        vim-enhanced \
        http-parser-devel \
        json-c-devel \
+       jq \
     && yum clean all \
     && rm -rf /var/cache/yum
 
 RUN alternatives --set python /usr/bin/python3
 
 RUN pip3 install Cython pytest
+
+# install uv -- a Python package manager
+RUN (curl -LsSf https://astral.sh/uv/install.sh | sh) && cp /root/.local/bin/uv /usr/local/bin/uv && uv
 
 ARG GOSU_VERSION=1.17
 
