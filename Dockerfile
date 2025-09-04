@@ -1,10 +1,10 @@
 FROM rockylinux:8
 
-LABEL org.opencontainers.image.source="https://github.com/giovtorres/slurm-docker-cluster" \
+LABEL org.opencontainers.image.source="https://github.com/GreenScheduler/slurm-docker-cluster" \
       org.opencontainers.image.title="slurm-docker-cluster" \
-      org.opencontainers.image.description="Slurm Docker cluster on Rocky Linux 8" \
+      org.opencontainers.image.description="Slurm Docker cluster on Rocky Linux 8, with jq and uv" \
       org.label-schema.docker.cmd="docker-compose up -d" \
-      maintainer="Giovanni Torres"
+      maintainer="Climate Aware Task Scheduler maintainers, modified from upstream by Giovanni Torres"
 
 # Changes from upstream giovtorres/slurm-docker-cluster: added jq to parse JSON output
 RUN set -ex \
