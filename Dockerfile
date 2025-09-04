@@ -42,7 +42,7 @@ RUN alternatives --set python /usr/bin/python3
 RUN pip3 install Cython pytest
 
 # install uv -- a Python package manager
-RUN (curl -LsSf https://astral.sh/uv/install.sh | sh) && cp /root/.local/bin/uv /usr/local/bin/uv && uv
+RUN (curl -LsSf https://astral.sh/uv/install.sh | sh) && cp /root/.local/bin/uv /usr/local/bin/uv
 
 ARG GOSU_VERSION=1.17
 
