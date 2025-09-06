@@ -20,6 +20,8 @@ RUN set -ex \
        gcc-c++\
        git \
        gnupg \
+       lua \
+       lua-devel \
        make \
        munge \
        munge-devel \
@@ -92,6 +94,7 @@ RUN set -x \
     && /sbin/create-munge-key
 
 COPY slurm.conf /etc/slurm/slurm.conf
+COPY job_submit.lua /etc/slurm/job_submit.lua
 COPY slurmdbd.conf /etc/slurm/slurmdbd.conf
 RUN set -x \
     && chown slurm:slurm /etc/slurm/slurmdbd.conf \
