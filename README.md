@@ -1,5 +1,8 @@
 # Slurm Docker Cluster
 
+> [!NOTE]
+> Modified from upstream to include a `job_submit.lua` plugin that holds job in a green queue
+
 <p align="center">
     <b> English | <a href="./readme/README_CN.md">简体中文</a> </b>
 </p>
